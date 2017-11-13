@@ -1,0 +1,170 @@
+<style>
+
+    body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .section {
+        padding-top: 0em;
+    }
+
+    .title {
+        font-size: 2em;
+    }
+
+    .navigation {
+
+        padding: 0.25em;
+        background: white;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .navigation a {
+        margin-right: 0.5em;
+        text-decoration: none;
+    }
+
+    .content {
+        margin-top: 0;
+        margin-bottom: 110%;
+    }
+</style>
+<script>
+
+
+    function goToSection(section_id) {
+        // Set body padding top to the size of the fixed navigation even if it resizes.
+        var elementNavigation = document.querySelector('.navigation');
+        var element = document.getElementById(section_id);
+        var height = elementNavigation.clientHeight;
+        document.body.style.paddingTop = height + 'px';
+        window.scrollTo(0, element.offsetTop - elementNavigation.clientHeight);
+    }
+
+
+    function onClickSection(e) {
+        goToSection(e.target.dataset.section_id);
+    }
+
+    function init() {
+        var button_list = document.querySelectorAll('.navigation button');
+        for (var i = 0; i < button_list.length; i++) {
+            var button = button_list[i];
+            button.addEventListener('click', onClickSection);
+        }
+        goToSection("section_0");
+    }
+
+
+    document.addEventListener('DOMContentLoaded', init);
+
+
+</script>
+<body>
+
+<div class="navigation">
+    <button data-section_id="section_0">Section One</button>
+    <button data-section_id="section_1">Section Two</button>
+    <button data-section_id="section_2">Section Three</button>
+    <button data-section_id="section_3">Section Four</button>
+    <button data-section_id="section_4">Section Five</button>
+    <button data-section_id="section_5">Section Six</button>
+</div>
+
+<div class="content">
+    <div class="section" id="section_0">
+        <div class="title">Section One</div>
+        Content for Section One. Content for Section One. Content for Section One. Content for Section One. Content for
+        Section One. Content for Section One. Content for Section One. Content for Section One. Content for Section One.
+        Content for Section One. Content for Section One. Content for Section One. Content for Section One. Content for
+        Section One. Content for Section One. Content for Section One. Content for Section One. Content for Section One.
+        Content for Section One. Content for Section One. Content for Section One. Content for Section One. Content for
+        Section One. Content for Section One. Content for Section One. Content for Section One. Content for Section One.
+        Content for Section One. Content for Section One. Content for Section One. Content for Section One. Content for
+        Section One. Content for Section One. Content for Section One. Content for Section One. Content for Section One.
+        Content for Section One. Content for Section One. Content for Section One. Content for Section One. Content for
+        Section One. Content for Section One. Content for Section One. Content for Section One. Content for Section One.
+        Content for Section One. Content for Section One. Content for Section One.
+    </div>
+    <div class="section" id="section_1">
+        <div class="title">Section Two</div>
+        Content for Section Two. Content for Section Two. Content for Section Two. Content for Section Two. Content for
+        Section Two. Content for Section Two. Content for Section Two. Content for Section Two. Content for Section Two.
+        Content for Section Two. Content for Section Two. Content for Section Two. Content for Section Two. Content for
+        Section Two. Content for Section Two. Content for Section Two. Content for Section Two. Content for Section Two.
+        Content for Section Two. Content for Section Two. Content for Section Two. Content for Section Two. Content for
+        Section Two. Content for Section Two. Content for Section Two. Content for Section Two. Content for Section Two.
+        Content for Section Two. Content for Section Two. Content for Section Two. Content for Section Two. Content for
+        Section Two. Content for Section Two. Content for Section Two. Content for Section Two. Content for Section Two.
+        Content for Section Two. Content for Section Two. Content for Section Two. Content for Section Two. Content for
+        Section Two. Content for Section Two. Content for Section Two. Content for Section Two. Content for Section Two.
+        Content for Section Two. Content for Section Two. Content for Section Two.
+    </div>
+    <div class="section" id="section_2">
+        <div class="title">Section Three</div>
+        Content for Section Three. Content for Section Three. Content for Section Three. Content for Section Three.
+        Content for Section Three. Content for Section Three. Content for Section Three. Content for Section Three.
+        Content for Section Three. Content for Section Three. Content for Section Three. Content for Section Three.
+        Content for Section Three. Content for Section Three. Content for Section Three. Content for Section Three.
+        Content for Section Three. Content for Section Three. Content for Section Three. Content for Section Three.
+        Content for Section Three. Content for Section Three. Content for Section Three. Content for Section Three.
+        Content for Section Three. Content for Section Three. Content for Section Three. Content for Section Three.
+        Content for Section Three. Content for Section Three. Content for Section Three. Content for Section Three.
+        Content for Section Three. Content for Section Three. Content for Section Three. Content for Section Three.
+        Content for Section Three. Content for Section Three. Content for Section Three. Content for Section Three.
+        Content for Section Three. Content for Section Three. Content for Section Three. Content for Section Three.
+        Content for Section Three. Content for Section Three. Content for Section Three. Content for Section Three.
+    </div>
+    <div class="section" id="section_3">
+        <div class="title">Section Four</div>
+        Content for Section Four. Content for Section Four. Content for Section Four. Content for Section Four. Content
+        for Section Four. Content for Section Four. Content for Section Four. Content for Section Four. Content for
+        Section Four. Content for Section Four. Content for Section Four. Content for Section Four. Content for Section
+        Four. Content for Section Four. Content for Section Four. Content for Section Four. Content for Section Four.
+        Content for Section Four. Content for Section Four. Content for Section Four. Content for Section Four. Content
+        for Section Four. Content for Section Four. Content for Section Four. Content for Section Four. Content for
+        Section Four. Content for Section Four. Content for Section Four. Content for Section Four. Content for Section
+        Four. Content for Section Four. Content for Section Four. Content for Section Four. Content for Section Four.
+        Content for Section Four. Content for Section Four. Content for Section Four. Content for Section Four. Content
+        for Section Four. Content for Section Four. Content for Section Four. Content for Section Four. Content for
+        Section Four. Content for Section Four. Content for Section Four. Content for Section Four. Content for Section
+        Four. Content for Section Four.
+    </div>
+    <div class="section" id="section_4">
+        <div class="title">Section Five</div>
+        Content for Section Five. Content for Section Five. Content for Section Five. Content for Section Five. Content
+        for Section Five. Content for Section Five. Content for Section Five. Content for Section Five. Content for
+        Section Five. Content for Section Five. Content for Section Five. Content for Section Five. Content for Section
+        Five. Content for Section Five. Content for Section Five. Content for Section Five. Content for Section Five.
+        Content for Section Five. Content for Section Five. Content for Section Five. Content for Section Five. Content
+        for Section Five. Content for Section Five. Content for Section Five. Content for Section Five. Content for
+        Section Five. Content for Section Five. Content for Section Five. Content for Section Five. Content for Section
+        Five. Content for Section Five. Content for Section Five. Content for Section Five. Content for Section Five.
+        Content for Section Five. Content for Section Five. Content for Section Five. Content for Section Five. Content
+        for Section Five. Content for Section Five. Content for Section Five. Content for Section Five. Content for
+        Section Five. Content for Section Five. Content for Section Five. Content for Section Five. Content for Section
+        Five. Content for Section Five.
+    </div>
+    <div class="section" id="section_5">
+        <div class="title">Section Six</div>
+        Content for Section Six. Content for Section Six. Content for Section Six. Content for Section Six. Content for
+        Section Six. Content for Section Six. Content for Section Six. Content for Section Six. Content for Section Six.
+        Content for Section Six. Content for Section Six. Content for Section Six. Content for Section Six. Content for
+        Section Six. Content for Section Six. Content for Section Six. Content for Section Six. Content for Section Six.
+        Content for Section Six. Content for Section Six. Content for Section Six. Content for Section Six. Content for
+        Section Six. Content for Section Six. Content for Section Six. Content for Section Six. Content for Section Six.
+        Content for Section Six. Content for Section Six. Content for Section Six. Content for Section Six. Content for
+        Section Six. Content for Section Six. Content for Section Six. Content for Section Six. Content for Section Six.
+        Content for Section Six. Content for Section Six. Content for Section Six. Content for Section Six. Content for
+        Section Six. Content for Section Six. Content for Section Six. Content for Section Six. Content for Section Six.
+        Content for Section Six. Content for Section Six. Content for Section Six.
+    </div>
+</div>
+</body>

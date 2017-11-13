@@ -1,0 +1,130 @@
+<style>
+
+    body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .section {
+        padding-top: 2em;
+    }
+
+    .title {
+        font-size: 2em;
+    }
+
+    .navigation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 0.25em;
+        background: white;
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+    }
+
+    .navigation a {
+        margin-right: 1em;
+    }
+
+    .content {
+        margin-top: 0;
+        margin-bottom: 100%;
+    }
+</style>
+<script>
+    (function () { // BEGIN IIFE (Immediately invoked function expression) variable scope closure.
+
+
+        function getSection(sectionModel) {
+
+            var sectionElement = document.createElement('div');
+            sectionElement.classList.add('section');
+
+            sectionElement.appendChild(getTitle(sectionModel.title));
+            for (var c = 0; c < 48; c++) {
+                sectionElement.innerHTML += sectionModel.content + ' ';
+            }
+
+            sectionElement.setAttribute("id", getSectionID(sectionModel));
+
+            return sectionElement;
+        }
+
+
+        function goToSection(section_id){
+            var element = document.getElementById(section_id);
+            window.scrollTo(0, element.offsetTop);
+        }
+
+
+        function onClickSection(e){
+            goToSection(e.target.dataset.section_id);
+        }
+
+
+        function getSectionID(sectionModel) {
+            return "section_" + sectionModel.index;
+        }
+
+
+        function getTitle(title) {
+            var sectionTitle = document.createElement('div');
+            sectionTitle.innerHTML = title;
+            sectionTitle.classList.add('title');
+            return sectionTitle;
+        }
+
+
+        function getNavigationLink(sectionModel) {
+
+            var navigationElement = document.createElement('button');
+            navigationElement.innerHTML =  sectionModel.title;
+
+            navigationElement.dataset.section_id =  getSectionID(sectionModel);
+            navigationElement.addEventListener('click', onClickSection);
+
+            return navigationElement;
+        }
+
+
+
+        function drawSections(section_list) {
+            var target = document.body;
+
+            var navigationElement = document.createElement('div');
+            navigationElement.classList.add('navigation');
+
+            var contentElement = document.createElement('div');
+            contentElement.classList.add('content');
+
+
+            for (var i = 0; i < section_list.length; i++) {
+                var s = section_list[i];
+                s.index = i;
+                navigationElement.appendChild(getNavigationLink(s));
+                contentElement.appendChild(getSection(s));
+            }
+
+            target.appendChild(navigationElement);
+            target.appendChild(contentElement);
+
+
+        }
+
+        var section_list = [
+            {title: "Section One", content: "Content for Section One."},
+            {title: "Section Two", content: "Content for Section Two."},
+            {title: "Section Three", content: "Content for Section Three."},
+            {title: "Section Four", content: "Content for Section Four."},
+            {title: "Section Five", content: "Content for Section Five."},
+            {title: "Section Six", content: "Content for Section Six."}
+        ];
+
+        document.addEventListener("DOMContentLoaded", function () {
+            drawSections(section_list);
+        });
+
+    }()); // END IIFE (Immediately invoked function expression) variable scope closure.
+</script>
